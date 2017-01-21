@@ -1,0 +1,17 @@
+5 modes of a DnD sessions
+------
+Setup
+	Telling players about the adventure, details on quest, rolling checks for the rewards
+Exploration
+	Searching for traps, clues, and treasure
+	Fills space between encounters
+	Describe environment to allow them to choose an option ... Listen and decide if action requries a check
+	Narrate results of their actions
+Conversation
+	Picking the brain of an NPC for information, Bluffs, diplomaacy, persuasion, insight, intimidation
+Encounter and battle time
+Passing Time
+	A quick break, shouldn't spend a lot of time doing menial tasks like choosing tonight's dinner
+----
+Make note of passive skill modifiers
+	If passive bonus is higher than the DC, it's a given
