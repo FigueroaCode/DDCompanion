@@ -17,10 +17,16 @@ public class Character {
 	
 	private int wealth;
 	private int hitPoints;
+	private int maxHP;
 	private int level;
 	private int hitDie;
 	private int exp;
+	private int proficiencyBonus;
+	private int initiative;
+	private int armorClass;
+	private int speed;
 	//ArrayList for Languages and profencies
+	ArrayList<String> languages = new ArrayList<String>();
 	ArrayList<String> proficiencies = new ArrayList<String>();
 	//Create ArrayList for equipment and show equipment
 	ArrayList<String> equipment = new ArrayList<String>();
@@ -39,7 +45,9 @@ public class Character {
 		charisma = 0;
 		wealth = 0;
 		hitPoints = 0;
+		hitDie = 0;
 		exp = 0;
+		initiative = 0;
 		this.name = name;
 		this.race = race;
 		profession = "";
@@ -99,14 +107,23 @@ public class Character {
 		}
 		return equipment;
 	}
-	public ArrayList<String> addProficiences(ArrayList<String> spells, Scanner input){
-		System.out.println("How many spells would you like to add?");
+	public ArrayList<String> addProficiences(ArrayList<String> proficiences, Scanner input){
+		System.out.println("How many proficiencies would you like to add?");
 		int count = input.nextInt();
 		for(int i = 0; i <= count; i++){
-			System.out.println("Enter a spell to add");
+			System.out.println("Enter a proficiency to add");
 			proficiencies.add(input.next());	
 		}
-		return spells;
+		return proficiencies;
+	}
+	public ArrayList<String> addLanguages(ArrayList<String> languages, Scanner input){
+		System.out.println("How many languages would you like to add?");
+		int count = input.nextInt();
+		for(int i = 0; i <= count; i++){
+			System.out.println("Enter a language to add");
+			languages.add(input.next());	
+		}
+		return languages;
 	}
 	public ArrayList<String> removeSpells(ArrayList<String> spells, Scanner input){
 		System.out.println("How many spells would you like to add?");
@@ -126,15 +143,31 @@ public class Character {
 		}
 		return equipment;
 	}
+	
 	public boolean short_Rest(){
-		//Able to spend hit die up to char level
+	int hpGained = (int) (Math.random() * hitDie + 1);
+	//Giving the user choice of using their hit die count, based on their level
+	//Counter for Hit Dice
+	if(hpGained > maxHP){
+		hitPoints = maxHP;
+		return true;
+	}
+	else{
+		hitPoints =+ hpGained;
+	}
+	System.out.println("You gained " + hpGained + "hit points");
+	return true;
 	}
 	public boolean long_Rest(){
 		//Regains lost hit points and gets hit dice equal to half their level
-		//Spells can be chosen again
+		hitPoints = maxHP;
+		//Spells can be chosen again, reprompt user to select spells
+		//Counter for spells
+		spells.clear();
 		addSpells(spells, input);
-		
+		return true;
 	}
+	
 	//Add Experience Points
 	public int addXP(Scanner input){
 		System.out.println("Please enter the amount of experience you will add");
@@ -143,8 +176,52 @@ public class Character {
 		System.out.println("You're new experience is: ");
 		return exp;
 	}
-	//Calculate level based on experience points
-	//
+	public boolean checkLevel(Scanner input){
+		System.out.println("What level is your character based on their experience?");
+		level = input.nextInt();
+		System.out.println("You are level: " + level);
+		return true;
+	}
+	//Calculte profiency bonus of character
+	public boolean checkProficiency(Scanner input){
+		if(level <= 4){
+			proficiencyBonus = 2;
+			return true;
+		}
+		else if((level <= 8) && (level >= 5)){
+			proficiencyBonus = 3;
+			return true;
+		}
+		else if((level <= 12) && (level >= 9)){
+			proficiencyBonus = 3;
+			return true;
+		}
+		else if((level <= 13) && (level >= 16)){
+			proficiencyBonus = 3;
+			return true;
+		}
+		else if((level <= 17) && (level >= 20)){
+			proficiencyBonus = 3;
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public int addHP(Scanner input){
+		System.out.println("Please enter the amount of hit points you will add");
+		int newHP = input.nextInt();
+		hitPoints =+ newHP;
+		System.out.println("You're new hit points are: ");
+		return hitPoints;
+	}
+	public int loseHP(Scanner input){
+		System.out.println("Please enter the amount of hit points you lose");
+		int newHP = input.nextInt();
+		hitPoints =- newHP;
+		System.out.println("You're new hit points are: ");
+		return hitPoints;		
+	}
 	public boolean addRaceStats() {
 		//Adds Ability Score modifiers to character given their race
 		//Series of If/Else Statements 
@@ -185,6 +262,7 @@ public class Character {
 			}
 			wealth = wealth*10;
 			hitPoints = 10 + checkModifier(consti);
+			hitDie = 10;
 		}
 		else if(profession.equalsIgnoreCase("Wizard")){
 			for(int i = 0; i <= 4; i++){
@@ -192,6 +270,7 @@ public class Character {
 			}
 			wealth = wealth*10;
 			hitPoints = 6 + checkModifier(consti);
+			hitDie = 6;
 		}
 		else if(profession.equalsIgnoreCase("Rogue")){
 			for(int i = 0; i <= 4; i++){
@@ -199,6 +278,7 @@ public class Character {
 			}
 			wealth = wealth*10;
 			hitPoints = 8+ checkModifier(consti);
+			hitDie = 8;
 		}
 		else if(profession.equalsIgnoreCase("Cleric")){
 			for(int i = 0; i <= 5; i++){
@@ -206,6 +286,7 @@ public class Character {
 			}
 			wealth = wealth*10;
 			hitPoints = 8 + checkModifier(consti);
+			hitDie = 8;
 		}
 		else{
 			System.out.println("No information for that class.");
