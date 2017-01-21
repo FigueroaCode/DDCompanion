@@ -29,6 +29,12 @@ public class RegisterActivity extends AppCompatActivity {
     private String passwordRegisterStr;
     private String verifyPasswordRegisterStr;
 
+    private void registrationFailure(){
+        Toast.makeText(getApplicationContext(), "Registration Unsuccessful", Toast.LENGTH_SHORT).show();
+        passwordRegister.setText("");
+        verifyPasswordRegister.setText("");
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,17 +65,27 @@ public class RegisterActivity extends AppCompatActivity {
                 passwordRegisterStr = passwordRegister.getText().toString();
                 verifyPasswordRegisterStr = verifyPasswordRegister.getText().toString();
 
-                authentication.createUserWithEmailAndPassword(emailRegisterStr,passwordRegisterStr)
-                        .addOnCompleteListener(RegisterActivity.this,new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                Toast.makeText(getApplicationContext(),"Account created",Toast.LENGTH_SHORT).show();
+                //Verify passwords match before attempting to create the account.
+                if(verifyPasswordRegisterStr == passwordRegisterStr) {
+                    authentication.createUserWithEmailAndPassword(emailRegisterStr, passwordRegisterStr)
+                            .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();
 
-                                startActivity(new Intent(RegisterActivity.this,MainActivity.class));
-                                finish();
-                            }
-                        });
+                                        startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+                                        finish();
+                                    } else {
+                                        registrationFailure();
+                                    }
+                                }
+                            });
+                }else{
+                    registrationFailure();
+                }
             }
-        });
+        });//End of onClickListener.
+
     }
 }
