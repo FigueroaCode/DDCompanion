@@ -117,7 +117,7 @@ public class Character {
 		return proficiencies;
 	}
 	public ArrayList<String> addLanguages(ArrayList<String> languages, Scanner input){
-		System.out.println("How many languages would you like to add?");
+		System.out.println("How many languages do you speak?");
 		int count = input.nextInt();
 		for(int i = 0; i <= count; i++){
 			System.out.println("Enter a language to add");
@@ -175,6 +175,25 @@ public class Character {
 		exp =+ newXP;
 		System.out.println("You're new experience is: ");
 		return exp;
+	}
+	public boolean checkAC(Scanner input){
+		System.out.println("What type of armor do you have? Light, Medium, or Heavy?");
+		String armorType = input.next();
+		if(armorType.equalsIgnoreCase("Light")){
+			armorClass = 11 + checkModifier(dex);
+			return true;
+		}
+		else if(armorType.equalsIgnoreCase("Medium")){
+			armorClass = 14 + checkModifier(dex);
+			return true;
+		}
+		else if (armorType.equalsIgnoreCase("Heavy")){
+			armorClass = 15;
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 	public boolean checkLevel(Scanner input){
 		System.out.println("What level is your character based on their experience?");
@@ -262,7 +281,7 @@ public class Character {
 				wealth =+ (int) Math.random() * 4 + 1;
 			}
 			wealth = wealth*10;
-			hitPoints = 10 + checkModifier(consti);
+			maxHP = 10 + checkModifier(consti);
 			hitDie = 10;
 		}
 		else if(profession.equalsIgnoreCase("Wizard")){
@@ -270,7 +289,7 @@ public class Character {
 				wealth =+ (int) Math.random() * 4 + 1;
 			}
 			wealth = wealth*10;
-			hitPoints = 6 + checkModifier(consti);
+			maxHP = 6 + checkModifier(consti);
 			hitDie = 6;
 		}
 		else if(profession.equalsIgnoreCase("Rogue")){
@@ -278,7 +297,7 @@ public class Character {
 				wealth =+ (int) Math.random() * 4 + 1;
 			}
 			wealth = wealth*10;
-			hitPoints = 8+ checkModifier(consti);
+			maxHP = 8+ checkModifier(consti);
 			hitDie = 8;
 		}
 		else if(profession.equalsIgnoreCase("Cleric")){
@@ -286,7 +305,7 @@ public class Character {
 				wealth =+ (int) Math.random() * 4;
 			}
 			wealth = wealth*10;
-			hitPoints = 8 + checkModifier(consti);
+			maxHP = 8 + checkModifier(consti);
 			hitDie = 8;
 		}
 		else{
