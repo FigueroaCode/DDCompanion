@@ -1,0 +1,12 @@
+Name: Charles
+Class: Cleric
+Wealth: 10
+Hit points: 2
+-------
+You're stats are as follows: 
+Strength: 15
+Intelligence: 14
+Dexterity: 13
+Constiution: 12
+Charisma: 10
+Wisdom: 8

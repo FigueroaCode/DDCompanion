@@ -1,0 +1,12 @@
+Name: Joe
+Class: Fighter
+Wealth: 10
+Hit points: 2
+-------
+You're stats are as follows: 
+Strength: 8
+Intelligence: 15
+Dexterity: 14
+Constiution: 13
+Charisma: 12
+Wisdom: 10
