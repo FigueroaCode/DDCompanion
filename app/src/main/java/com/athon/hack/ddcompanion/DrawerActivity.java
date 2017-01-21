@@ -75,6 +75,10 @@ public class DrawerActivity extends AppCompatActivity
             // Handle the camera action
 
         } else if (id == R.id.nav_party) {
+            PartyFragment frag = new PartyFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_drawer,frag).commit();
+
+        }else if(id == R.id.nav_game){
 
         }
 
