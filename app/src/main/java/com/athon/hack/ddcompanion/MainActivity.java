@@ -59,8 +59,13 @@ public class MainActivity extends AppCompatActivity {
                         .addOnCompleteListener(MainActivity.this,new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                Toast.makeText(getApplicationContext(),"Log in successful",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(MainActivity.this,DrawerActivity.class));
+                                if(task.isSuccessful()) {
+                                    Toast.makeText(getApplicationContext(), "Log in successful", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(MainActivity.this, DrawerActivity.class));
+                                }else{
+                                    Toast.makeText(getApplicationContext(), "Sign in Failed", Toast.LENGTH_SHORT).show();
+                                    password.setText("");
+                                }
                             }
                         });
             }
