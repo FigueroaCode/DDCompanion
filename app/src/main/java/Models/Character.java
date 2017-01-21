@@ -22,9 +22,7 @@ public class Character {
 	private int hitDie;
 	private int exp;
 	private int proficiencyBonus;
-	private int initiative;
 	private int armorClass;
-	private int speed;
 	//ArrayList for Languages and profencies
 	ArrayList<String> languages = new ArrayList<String>();
 	ArrayList<String> proficiencies = new ArrayList<String>();
@@ -47,7 +45,8 @@ public class Character {
 		hitPoints = 0;
 		hitDie = 0;
 		exp = 0;
-		initiative = 0;
+		armorClass = 0;
+		proficiencyBonus = 0;
 		this.name = name;
 		this.race = race;
 		profession = "";
@@ -177,23 +176,14 @@ public class Character {
 		return exp;
 	}
 	public boolean checkAC(Scanner input){
-		System.out.println("What type of armor do you have? Light, Medium, or Heavy?");
+		System.out.println("What type of armor do you have? What is it's AC w/o bonuses?");
 		String armorType = input.next();
-		if(armorType.equalsIgnoreCase("Light")){
-			armorClass = 11 + checkModifier(dex);
+		if(armorType.equalsIgnoreCase("Chain Mail")){
+			armorClass = input.nextInt();
 			return true;
 		}
-		else if(armorType.equalsIgnoreCase("Medium")){
-			armorClass = 14 + checkModifier(dex);
-			return true;
-		}
-		else if (armorType.equalsIgnoreCase("Heavy")){
-			armorClass = 15;
-			return true;
-		}
-		else{
-			return false;
-		}
+		int armorClass = input.nextInt() + checkModifier(dex);
+return true;
 	}
 	public boolean checkLevel(Scanner input){
 		System.out.println("What level is your character based on their experience?");
@@ -392,27 +382,5 @@ public class Character {
 		}
 		return 0;
 	}
-
-	public void toWrite(){
-		//Writes information about character object into a file with the character's name
-		File file = new File(getName() + ".txt");
-	try{
-		PrintWriter outPut = new PrintWriter(file);
-		outPut.println("Name: " + getName());
-		outPut.println("Class: " + getProfession());
-		outPut.println("Wealth: " + getWealth());
-		outPut.println("Hit points: " + getHP());
-		outPut.println("-------");
-		outPut.println("You're stats are as follows: ");
-		outPut.println("Strength: " +getStr());
-		outPut.println("Intelligence: " + getIntelli());
-		outPut.println("Dexterity: " + getDex());
-		outPut.println("Constiution: " + getConsti());
-		outPut.println("Charisma: " + getCharisma());
-		outPut.println("Wisdom: " + getWis());
-		outPut.close();
-	}catch(Exception e){
-		System.out.println("Error found");
-	}
-	}
 }
+
