@@ -66,7 +66,7 @@ public class RegisterActivity extends AppCompatActivity {
                 verifyPasswordRegisterStr = verifyPasswordRegister.getText().toString();
 
                 //Verify passwords match before attempting to create the account.
-                if(verifyPasswordRegisterStr == passwordRegisterStr) {
+                if(verifyPasswordRegisterStr.equals(passwordRegisterStr)) {
                     authentication.createUserWithEmailAndPassword(emailRegisterStr, passwordRegisterStr)
                             .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                                 @Override
