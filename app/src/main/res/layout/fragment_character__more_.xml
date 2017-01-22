@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.isabellalee.swamphacks.Character_More_Fragment"
+    tools:context="com.athon.hack.ddcompanion.Character_More_Fragment"
     android:weightSum="1"
     android:background="@color/backgroundColor"
     tools:layout_margin="20dp">
