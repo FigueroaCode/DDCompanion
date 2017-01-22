@@ -19,7 +19,6 @@ public class Skills {
 	private int slightOfHand;
 	private int stealth;
 	private int survival;
-	private Character character;
 	
 	
 	public int getAcrobatics() {
@@ -28,7 +27,7 @@ public class Skills {
 	public void setAcrobatics(int acrobatics) {
 		this.acrobatics = acrobatics;
 	}
-	public void updateAcrobatics() {
+	public void updateAcrobatics(Character character) {
 		int res = (character.getDex() - 10) / 2;
 		acrobatics += res;
 	}
@@ -38,7 +37,7 @@ public class Skills {
 	public void setAnimalHandling(int animalHandling) {
 		this.animalHandling = animalHandling;
 	}
-	public void updateAnimalHandling() {
+	public void updateAnimalHandling(Character character) {
 		int res = (character.getWis() - 10) / 2;
 		animalHandling += res;
 	}
@@ -49,7 +48,7 @@ public class Skills {
 	public void setArcana(int arcana) {
 		this.arcana = arcana;
 	}
-	public void updateArcana() {
+	public void updateArcana(Character character) {
 		int res = (character.getIntelli() - 10) / 2;
 		arcana += res;
 	}
@@ -59,7 +58,7 @@ public class Skills {
 	public void setAthletics(int athletics) {
 		this.athletics = athletics;
 	}
-	public void updateAthletics() {
+	public void updateAthletics(Character character) {
 		int res = (character.getStr() - 10) / 2;
 		athletics += res;
 	}
@@ -70,7 +69,7 @@ public class Skills {
 	public void setDeception(int deception) {
 		this.deception = deception;
 	}
-	public void updateDeception() {
+	public void updateDeception(Character character) {
 		int res = (character.getCharisma() - 10) / 2;
 		deception += res;
 	}
@@ -80,7 +79,7 @@ public class Skills {
 	public void setHistory(int history) {
 		this.history = history;
 	}
-	public void updateHistory() {
+	public void updateHistory(Character character) {
 		int res = (character.getIntelli() - 10) / 2;
 		history += res;
 	}
@@ -90,7 +89,7 @@ public class Skills {
 	public void setInsight(int insight) {
 		this.insight = insight;
 	}
-	public void updateInsight() {
+	public void updateInsight(Character character) {
 		int res = (character.getWis() - 10) / 2;
 		insight += res;
 	}
@@ -100,7 +99,7 @@ public class Skills {
 	public void setIntimidation(int intimidation) {
 		this.intimidation = intimidation;
 	}
-	public void updateIntimidation() {
+	public void updateIntimidation(Character character) {
 		int res = (character.getCharisma() - 10) / 2;
 		intimidation += res;
 	}
@@ -110,7 +109,7 @@ public class Skills {
 	public void setInvestigation(int investigation) {
 		this.investigation = investigation;
 	}
-	public void updateInvestigation() {
+	public void updateInvestigation(Character character) {
 		int res = (character.getIntelli() - 10) / 2;
 		investigation += res;
 	}
@@ -120,7 +119,7 @@ public class Skills {
 	public void setMedicine(int medicine) {
 		this.medicine = medicine;
 	}
-	public void updateMedicine() {
+	public void updateMedicine(Character character) {
 		int res = (character.getWis() - 10) / 2;
 		medicine += res;
 	}
@@ -130,7 +129,7 @@ public class Skills {
 	public void setNature(int nature) {
 		this.nature = nature;
 	}
-	public void updateNature() {
+	public void updateNature(Character character) {
 		int res = (character.getIntelli() - 10) / 2;
 		nature += res;
 	}
@@ -140,7 +139,7 @@ public class Skills {
 	public void setPerception(int perception) {
 		this.perception = perception;
 	}
-	public void updatePerception() {
+	public void updatePerception(Character character) {
 		int res = (character.getWis() - 10) / 2;
 		perception += res;
 	}
@@ -150,7 +149,7 @@ public class Skills {
 	public void setPerformance(int performance) {
 		this.performance = performance;
 	}
-	public void updatePerformance() {
+	public void updatePerformance(Character character) {
 		int res = (character.getCharisma() - 10) / 2;
 		performance += res;
 	}
@@ -160,7 +159,7 @@ public class Skills {
 	public void setPersuasion(int persuasion) {
 		this.persuasion = persuasion;
 	}
-	public void updatePersuasion() {
+	public void updatePersuasion(Character character) {
 		int res = (character.getCharisma() - 10) / 2;
 		persuasion += res;
 	}
@@ -170,7 +169,7 @@ public class Skills {
 	public void setReligion(int religion) {
 		this.religion = religion;
 	}
-	public void updateReligion() {
+	public void updateReligion(Character character) {
 		int res = (character.getIntelli() - 10) / 2;
 		religion += res;
 	}
@@ -180,7 +179,7 @@ public class Skills {
 	public void setSlightOfHand(int slightOfHand) {
 		this.slightOfHand = slightOfHand;
 	}
-	public void updateSleightOfHand() {
+	public void updateSleightOfHand(Character character) {
 		int res = (character.getDex() - 10) / 2;
 		slightOfHand += res;
 	}
@@ -190,7 +189,7 @@ public class Skills {
 	public void setStealth(int stealth) {
 		this.stealth = stealth;
 	}
-	public void updateStealth() {
+	public void updateStealth(Character character) {
 		int res = (character.getDex() - 10) / 2;
 		stealth += res;
 	}
@@ -200,7 +199,7 @@ public class Skills {
 	public void setSurvival(int survival) {
 		this.survival = survival;
 	}
-	public void updateSurvival() {
+	public void updateSurvival(Character character) {
 		int res = (character.getWis() - 10) / 2;
 		survival += res;
 	}

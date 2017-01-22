@@ -10,8 +10,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Map;
 
 import Models.Character;
 
@@ -42,7 +48,13 @@ public class Character_More_Fragment extends Fragment {
     private EditText flaws;
     private EditText lvl;
 
+    FirebaseAuth myAuth;
+
+    private String NAME;
+    private String currentKey;
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference().getRoot();
+    private DatabaseReference userRoot = FirebaseDatabase.getInstance().getReference().getRoot().child("Users");
+    private ChildEventListener childEventListener;
 
     public Character_More_Fragment() {
         // Required empty public constructor
@@ -86,6 +98,36 @@ public class Character_More_Fragment extends Fragment {
         bonds = (EditText) view.findViewById(R.id.BondsID);
         flaws = (EditText) view.findViewById(R.id.FlawsID);
         lvl = (EditText) view.findViewById(R.id.lvlId);
+        myAuth = FirebaseAuth.getInstance();
+        NAME = myAuth.getCurrentUser().getDisplayName();
+
+        //child listener
+        childEventListener = new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                getInfo(dataSnapshot);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
 
         okBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -104,12 +146,13 @@ public class Character_More_Fragment extends Fragment {
 
 
                 String key = root.push().getKey();
-                Character chr = new Character(alignment,bond,exp,flaw,ideal,level,name,profession,race,trait,background);
+                Character chr = new Character(alignment,bond,exp,flaw,ideal,level,name,profession,race,trait,background,key);
 
                 chr.addHPAndWealth();
                 chr.addRaceStats();
                 root.child(key).setValue(chr);
 
+                userRoot.child(currentKey).child("created").setValue("true");
 
                 //Go to Game Frag
                 GameFragment frag = new GameFragment();
@@ -118,5 +161,30 @@ public class Character_More_Fragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void getInfo(DataSnapshot dataSnapshot) {
+        Map<String,Object> map = (Map<String,Object>) dataSnapshot.getValue();
+
+        String name = (String)map.get("name");
+
+        if(NAME.equals(name)){
+            currentKey = dataSnapshot.getKey();
+        }
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        userRoot.addChildEventListener(childEventListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if(childEventListener != null){
+            userRoot.removeEventListener(childEventListener);
+        }
     }
 }

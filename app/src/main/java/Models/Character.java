@@ -10,7 +10,8 @@ public class Character {
 	private int consti;
 	private int wis;
 	private int charisma;
-	
+
+    private String keyId;
 	private String name;
 	private String race;
 	private String profession;
@@ -34,7 +35,7 @@ public class Character {
 
     public Character(String alignment, String bond,
                      int exp, String flaw, String ideals, int level, String name,
-                     String profession, String race,String trait,String background) {
+                     String profession, String race,String trait,String background,String keyId) {
         this.alignment = alignment;
         this.bond = bond;
         this.exp = exp;
@@ -46,6 +47,7 @@ public class Character {
         this.race = race;
         this.trait = trait;
         this.background = background;
+        this.keyId = keyId;
 
         str = 0;
         intelli = 0;
@@ -92,6 +94,15 @@ public class Character {
 	}
 	//Getters and Setters
 
+
+    public String getKeyId() {
+        return keyId;
+    }
+
+    public void setKeyId(String keyId) {
+        this.keyId = keyId;
+    }
+
     public void setHitPoints(int hitPoints) {
         this.hitPoints = hitPoints;
     }
@@ -131,15 +142,16 @@ public class Character {
 	public String getProfession() {
 		return profession;
 	}
-	public int getHP() {
-		return hitPoints;
-	}
 	public int getWealth(){
 		return wealth;
 	}
 	public int getExp(){
 		return exp;
 	}
+
+    public int getMaxHP() {
+        return maxHP;
+    }
 
     public String getAlignment() {
         return alignment;
@@ -302,7 +314,7 @@ public class Character {
 	public boolean addRaceStats() {
 		//Adds Ability Score modifiers to character given their race
 		//Series of If/Else Statements 
-		if(race.equals("Human")){
+		if(race.equalsIgnoreCase("Human")){
 			str =+ 1;
 			intelli =+ 1;
 			dex =+ 1;
@@ -311,19 +323,19 @@ public class Character {
 			charisma =+ 1;
 			return true;
 		}
-		else if(race.equals("Halfling")){
+		else if(race.equalsIgnoreCase("Halfling")){
 			dex =+ 2;
 			return true;
 		}
-		else if(race.equals("Elf")){
+		else if(race.equalsIgnoreCase("Elf")){
 			dex =+ 2;
 			return true;
 		}
-		else if(race.equals("Dwarf")){
+		else if(race.equalsIgnoreCase("Dwarf")){
 			consti =+ 2;
 			return true;
 		}
-		else if(race.equals("Tiefling")){
+		else if(race.equalsIgnoreCase("Tiefling")){
 			intelli =+ 1;
 			charisma =+ 2;
 			return true;
@@ -333,7 +345,7 @@ public class Character {
 	}
 	//Adds HP and Wealth for Charcacters given their class
 	public void addHPAndWealth() {
-		if(profession.equals("Fighter")){
+		if(profession.equalsIgnoreCase("Fighter")){
 			for(int i = 0; i <= 5; i++){
 				wealth =+ (int) Math.random() * 4 + 1;
 			}
@@ -366,8 +378,11 @@ public class Character {
 			hitDie = 8;
 		}
 		else{
-			System.out.println("No information for that class.");
+			maxHP = 5;
+            hitDie = 5;
 		}
+
+        hitPoints = maxHP;
 	}
 //	public void createStats(Scanner input){
 //		System.out.println("How would you like to create ability Scores?");

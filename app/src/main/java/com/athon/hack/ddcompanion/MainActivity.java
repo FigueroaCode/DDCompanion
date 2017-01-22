@@ -42,14 +42,10 @@ public class MainActivity extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private FirebaseAuth authentication;
-    private DatabaseReference root = FirebaseDatabase.getInstance().getReference().getRoot().child("Users");
-    private ChildEventListener childEventListener;
 
     private String emailStr;
     private String passwordStr;
     private  String NAME;
-
-    private boolean created;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,32 +65,6 @@ public class MainActivity extends AppCompatActivity {
                 NAME = user.getDisplayName();
             }
         });
-        childEventListener = new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                getInfo(dataSnapshot);
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        };
 
         signInButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -108,11 +78,8 @@ public class MainActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), "Log in successful", Toast.LENGTH_SHORT).show();
-                                    if(created){
-                                        startActivity(new Intent(MainActivity.this,IntroFragment.class));
-                                    }else {
-                                        startActivity(new Intent(MainActivity.this, DrawerActivity.class));
-                                    }
+
+                                    startActivity(new Intent(MainActivity.this, DrawerActivity.class));
                                 }else{
                                     Toast.makeText(getApplicationContext(), "Sign in Failed", Toast.LENGTH_SHORT).show();
                                     password.setText("");
@@ -129,30 +96,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-    private void getInfo(DataSnapshot dataSnapshot) {
-            Map<String, Object> map = (Map<String, Object>) dataSnapshot.getValue();
-
-            String name = (String) map.get("name");
-
-            if (!name.isEmpty() && name.equals(NAME)) {
-                created = Boolean.parseBoolean((String)map.get("created"));
-
-            }
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        root.addChildEventListener(childEventListener);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if(childEventListener != null){
-            root.removeEventListener(childEventListener);
-        }
     }
 }
