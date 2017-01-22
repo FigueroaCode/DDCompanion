@@ -8,20 +8,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@color/backgroundColor"
+    android:background="@drawable/dungeonsdragons"
     tools:context="com.athon.hack.ddcompanion.MainActivity">
-
-    <EditText
-        android:hint="email"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:layout_marginTop="124dp"
-        android:id="@+id/emailInputID"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
 
     <EditText
         android:hint="password"
@@ -34,16 +22,12 @@
         android:layout_alignRight="@+id/emailInputID"
         android:layout_alignEnd="@+id/emailInputID"
         android:layout_marginTop="35dp"
-        android:id="@+id/passwordInputID" />
-
-    <Button
-        android:text="Sign In"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/signInButtonID"
-        android:layout_below="@+id/passwordInputID"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp" />
+        android:id="@+id/passwordInputID"
+        android:fontFamily="cursive"
+        android:textStyle="normal|bold|italic"
+        android:textAllCaps="true"
+        android:textSize="30sp"
+        android:textColorHint="@android:color/white" />
 
     <View
         android:id="@+id/line"
@@ -54,12 +38,51 @@
         android:layout_below="@+id/signInButtonID"
         />
 
-    <TextView
-        android:id="@+id/createAccountButton"
-        android:layout_below="@+id/line"
+    <EditText
+        android:hint="email"
+        android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:text="Register Here"/>
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:layout_marginTop="29dp"
+        android:id="@+id/emailInputID"
+        android:fontFamily="cursive"
+        android:textSize="30sp"
+        android:textStyle="normal|bold|italic"
+        android:textAllCaps="true"
+        android:textAlignment="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="?attr/colorBackgroundFloating"
+        android:textColorHint="@android:color/white" />
+
+    <TextView
+        android:id="@+id/createAccountButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Register Here"
+        android:fontFamily="cursive"
+        android:textStyle="normal|bold|italic"
+        android:textAllCaps="true"
+        android:textColorHint="@android:color/white"
+        android:textColorLink="@android:color/white"
+        android:textColorHighlight="@android:color/white"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/line"
+        android:layout_alignLeft="@+id/signInButtonID"
+        android:layout_alignStart="@+id/signInButtonID" />
+
+    <Button
+        android:text="Sign In"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/signInButtonID"
+        android:layout_marginTop="67dp"
+        android:fontFamily="cursive"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/passwordInputID"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
