@@ -1,4 +1,4 @@
-package com.example.isabellalee.swamphacks;
+package com.athon.hack.ddcompanion;
 
 import android.content.Context;
 import android.net.Uri;
@@ -12,12 +12,12 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Character_More_Fragment.OnFragmentInteractionListener} interface
+ * {@link New_Character.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Character_More_Fragment#newInstance} factory method to
+ * Use the {@link New_Character#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Character_More_Fragment extends Fragment {
+public class New_Character extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,7 +29,7 @@ public class Character_More_Fragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public Character_More_Fragment() {
+    public New_Character() {
         // Required empty public constructor
     }
 
@@ -39,11 +39,11 @@ public class Character_More_Fragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Character_More_Fragment.
+     * @return A new instance of fragment New_Character.
      */
     // TODO: Rename and change types and number of parameters
-    public static Character_More_Fragment newInstance(String param1, String param2) {
-        Character_More_Fragment fragment = new Character_More_Fragment();
+    public static New_Character newInstance(String param1, String param2) {
+        New_Character fragment = new New_Character();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,7 +64,7 @@ public class Character_More_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_character__more_, container, false);
+        return inflater.inflate(R.layout.fragment_new__character, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -3,17 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Character_More_Fragment"
+    tools:context="com.example.isabellalee.swamphacks.Character_More_Fragment"
     android:weightSum="1"
+    android:background="@color/backgroundColor"
     tools:layout_margin="20dp">
 
+    <!-- TODO: Update blank fragment layout -->
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/IdealsID"
+        android:id="@+id/editText10"
         android:layout_weight="0.17"
         android:textAlignment="center"
         android:gravity="center_vertical|center_horizontal"
@@ -24,18 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="Level"
         android:ems="10"
-        android:id="@+id/lvlId"
-        android:gravity="center"
-        android:layout_weight="0.17" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/PersonalityTraitsID"
+        android:id="@+id/editText9"
         android:hint="Personality Traits"
         android:textAlignment="center"
         android:gravity="center_vertical|center_horizontal"
@@ -46,7 +38,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/BondsID"
+        android:id="@+id/editText11"
         android:layout_weight="0.17"
         android:hint="Bonds"
         android:textAlignment="center"
@@ -58,7 +50,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/FlawsID"
+        android:id="@+id/editText13"
         android:layout_weight="0.17"
         android:textAlignment="center"
         android:hint="Flaws"
@@ -69,7 +61,7 @@
         android:text="OK"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/OkButtonID"
+        android:id="@+id/button"
         tools:layout_width="match_parent" />
 
 </LinearLayout>

@@ -16,7 +16,7 @@ public class CalculateTurns {
         characters.set(index1,characters.get(index2));
         characters.set(index2, temp);
     }//End of switchCharacters
-    
+
     public void determineTurnOrder(ArrayList<Character> characters){
         for(int i = 0; i < characters.size()-1; i++){
 
