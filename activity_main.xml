@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/dungeonsdragons"
+    tools:context="com.athon.hack.ddcompanion.MainActivity">
+
+    <EditText
+        android:hint="password"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:layout_below="@+id/emailInputID"
+        android:layout_alignRight="@+id/emailInputID"
+        android:layout_alignEnd="@+id/emailInputID"
+        android:layout_marginTop="35dp"
+        android:id="@+id/passwordInputID"
+        android:fontFamily="cursive"
+        android:textStyle="normal|bold|italic"
+        android:textAllCaps="true"
+        android:textSize="30sp"
+        android:textColorHint="@android:color/white" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/signInButtonID"
+        />
+
+    <EditText
+        android:hint="email"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:layout_marginTop="29dp"
+        android:id="@+id/emailInputID"
+        android:fontFamily="cursive"
+        android:textSize="30sp"
+        android:textStyle="normal|bold|italic"
+        android:textAllCaps="true"
+        android:textAlignment="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="?attr/colorBackgroundFloating"
+        android:textColorHint="@android:color/white" />
+
+    <TextView
+        android:id="@+id/createAccountButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Register Here"
+        android:fontFamily="cursive"
+        android:textStyle="normal|bold|italic"
+        android:textAllCaps="true"
+        android:textColorHint="@android:color/white"
+        android:textColorLink="@android:color/white"
+        android:textColorHighlight="@android:color/white"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/line"
+        android:layout_alignLeft="@+id/signInButtonID"
+        android:layout_alignStart="@+id/signInButtonID" />
+
+    <Button
+        android:text="Sign In"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/signInButtonID"
+        android:layout_marginTop="67dp"
+        android:fontFamily="cursive"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/passwordInputID"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
