@@ -51,12 +51,12 @@ public class Character {
         this.keyId = keyId;
         this.realName = realName;
 
-        str = 0;
-        intelli = 0;
-        dex = 0;
-        consti = 0;
-        wis = 0;
-        charisma = 0;
+        str = 15;
+        intelli = 14;
+        dex = 13;
+        consti = 12;
+        wis = 10;
+        charisma = 8;
         wealth = 0;
         proficiencyBonus = 0;
         initiative = 0;
