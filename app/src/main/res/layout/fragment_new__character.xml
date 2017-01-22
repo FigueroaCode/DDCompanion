@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.example.isabellalee.swamphacks.New_Character"
+    tools:context="com.athon.hack.ddcompanion.New_Character"
     android:layout_gravity="center_vertical|center_horizontal"
     android:background="@color/backgroundColor"
     >
