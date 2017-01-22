@@ -11,6 +11,7 @@ public class Character {
 	private int wis;
 	private int charisma;
 
+	private String realName;
     private String keyId;
 	private String name;
 	private String race;
@@ -35,7 +36,7 @@ public class Character {
 
     public Character(String alignment, String bond,
                      int exp, String flaw, String ideals, int level, String name,
-                     String profession, String race,String trait,String background,String keyId) {
+                     String profession, String race,String trait,String background,String keyId,String realName) {
         this.alignment = alignment;
         this.bond = bond;
         this.exp = exp;
@@ -48,6 +49,7 @@ public class Character {
         this.trait = trait;
         this.background = background;
         this.keyId = keyId;
+        this.realName = realName;
 
         str = 0;
         intelli = 0;
@@ -94,6 +96,14 @@ public class Character {
 	}
 	//Getters and Setters
 
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
 
     public String getKeyId() {
         return keyId;

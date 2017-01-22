@@ -16,10 +16,10 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_below="@+id/editText5"
-        android:layout_alignLeft="@+id/editText5"
-        android:layout_alignStart="@+id/editText5"
-        android:id="@+id/editText6"
+        android:layout_below="@+id/alignmentID"
+        android:layout_alignLeft="@+id/alignmentID"
+        android:layout_alignStart="@+id/alignmentID"
+        android:id="@+id/experiencePointsID"
         android:hint="Experience Points"
         android:layout_centerHorizontal="true"
         android:gravity="center_vertical|center_horizontal" />
@@ -29,11 +29,11 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/classAndLevelID"
         android:hint="Class and Level"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2"
+        android:layout_alignLeft="@+id/backgroundID"
+        android:layout_alignStart="@+id/backgroundID"
         android:gravity="center_vertical|center_horizontal" />
 
     <EditText
@@ -41,9 +41,9 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText4"
+        android:id="@+id/raceID"
         android:hint="Race"
-        android:layout_below="@+id/editText3"
+        android:layout_below="@+id/playerNameID"
         android:layout_centerHorizontal="true"
         android:gravity="center_vertical|center_horizontal" />
 
@@ -52,10 +52,10 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/backgroundID"
         android:hint="Background"
         android:gravity="center_vertical|center_horizontal"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/classAndLevelID"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -64,10 +64,10 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText3"
+        android:id="@+id/playerNameID"
         android:hint="Player Name"
         android:gravity="center_vertical|center_horizontal"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/backgroundID"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -76,10 +76,10 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText5"
+        android:id="@+id/alignmentID"
         android:hint="Alignment"
         android:gravity="center_vertical|center_horizontal"
-        android:layout_below="@+id/editText4"
+        android:layout_below="@+id/raceID"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -87,12 +87,12 @@
         android:text="Next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText6"
+        android:layout_below="@+id/experiencePointsID"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="66dp"
         android:layout_marginEnd="66dp"
         android:layout_marginTop="73dp"
-        android:id="@+id/Next" />
+        android:id="@+id/nextButtonID" />
 
 </RelativeLayout>

@@ -40,7 +40,6 @@ public class CustomPartyListAdapter extends ArrayAdapter<Character> {
         lvlText.setText("Lvl "+String.valueOf(lvl));
         classText.setText(profession);
 
-        Log.d("Adapter",""+getItem(position).getHitPoints());
         hpBar.setMax(getItem(position).getMaxHP());
         hpBar.setProgress(getItem(position).getHitPoints());
         return view;

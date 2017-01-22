@@ -35,7 +35,7 @@ public class IntroFragment extends Fragment {
         contBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Character_Register frag = new Character_Register();
+                GameFragment frag = new GameFragment();
                 getFragmentManager().beginTransaction().replace(R.id.content_drawer,frag).commit();
             }
         });

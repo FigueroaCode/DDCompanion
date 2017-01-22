@@ -48,7 +48,7 @@ public class Character_More_Fragment extends Fragment {
     private EditText flaws;
     private EditText lvl;
 
-    FirebaseAuth myAuth;
+    private FirebaseAuth myAuth;
 
     private String NAME;
     private String currentKey;
@@ -146,7 +146,7 @@ public class Character_More_Fragment extends Fragment {
 
 
                 String key = root.push().getKey();
-                Character chr = new Character(alignment,bond,exp,flaw,ideal,level,name,profession,race,trait,background,key);
+                Character chr = new Character(alignment,bond,exp,flaw,ideal,level,name,profession,race,trait,background,key,NAME);
 
                 chr.addHPAndWealth();
                 chr.addRaceStats();
