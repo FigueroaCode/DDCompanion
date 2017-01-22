@@ -13,8 +13,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import Models.Character;
-
 public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -33,9 +31,6 @@ public class DrawerActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        Character_Register frag = new Character_Register();
-        getSupportFragmentManager().beginTransaction().replace(R.id.content_drawer,frag).commit();
     }
 
     @Override
@@ -76,13 +71,15 @@ public class DrawerActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_skill) {
-            SkillsActivity frag = new SkillsActivity();
+        if (id == R.id.nav_char) {
+            // Handle the camera action
+
+        } else if (id == R.id.nav_party) {
+            PartyFragment frag = new PartyFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.content_drawer,frag).commit();
 
-        } else if(id == R.id.nav_game){
-            GameFragment frag = new GameFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_drawer,frag).commit();
+        }else if(id == R.id.nav_game){
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
